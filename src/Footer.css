@@ -1,0 +1,10 @@
+.Footer {
+    background-color: #f8f9fa;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Assurez-vous que le z-index est élevé pour que le footer soit au-dessus du contenu */
+}

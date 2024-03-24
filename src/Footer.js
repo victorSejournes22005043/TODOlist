@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Footer.css'
 
 function Footer({ onAddTask, onSearch }) {
     const [inputValue, setInputValue] = useState('');
@@ -16,7 +17,7 @@ function Footer({ onAddTask, onSearch }) {
     };
 
     return (
-        <footer>
+        <footer className="Footer">
             <input
                 type="text"
                 placeholder="Quick search..."

@@ -63,6 +63,7 @@ function App() {
             <Header
                 remainingTasks={tasks.filter(task => !task.completed).length}
                 totalTasks={tasks.length}
+                className="Header"
             />
             <h2>TODO List</h2>
             <button onClick={openModal} className="add-task-button">+</button>
@@ -101,7 +102,7 @@ function App() {
                         </li>
                     ))}
             </ul>
-            <Footer onAddTask={addTask} onSearch={handleSearch} />
+            <Footer onAddTask={addTask} onSearch={handleSearch} className="footer"/>
 
         </div>
     );
