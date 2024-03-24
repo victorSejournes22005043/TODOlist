@@ -1,13 +1,27 @@
 import React, { useState } from 'react';
+import Modal from 'react-modal';
+
+import "./App.css";
+import './Modal.css';
 
 function App() {
     const [tasks, setTasks] = useState([]);
     const [inputValue, setInputValue] = useState('');
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+
+    const openModal = () => {
+        setModalIsOpen(true);
+    };
+
+    const closeModal = () => {
+        setModalIsOpen(false);
+    };
 
     const addTask = () => {
         if (inputValue.trim() !== '') {
             setTasks([...tasks, { id: Date.now(), text: inputValue, completed: false }]);
             setInputValue('');
+            closeModal();
         }
     };
 
@@ -28,15 +42,25 @@ function App() {
     };
 
     return (
-        <div>
+        <div className="container">
             <h1>TODO List</h1>
-            <input
-                type="text"
-                value={inputValue}
-                onChange={handleInputChange}
-                placeholder="Enter task"
-            />
-            <button onClick={addTask}>Add Task</button>
+            <button onClick={openModal} className="add-task-button">Add Task</button>
+            <Modal
+                isOpen={modalIsOpen}
+                onRequestClose={closeModal}
+                className="Modal__content"
+                overlayClassName="Modal__overlay"
+            >
+                <h2>Add Task</h2>
+                <input
+                    type="text"
+                    value={inputValue}
+                    onChange={handleInputChange}
+                    placeholder="Enter task"
+                />
+                <button onClick={addTask}>Add Task</button>
+                <button className="Modal__closeButton" onClick={closeModal}>X</button>
+            </Modal>
             <ul>
                 {tasks.map(task => (
                     <li key={task.id}>
@@ -46,7 +70,7 @@ function App() {
                             onChange={() => toggleTask(task.id)}
                         />
                         <span
-                            style={{ textDecoration: task.completed ? 'line-through' : 'none' }}
+                            style={{textDecoration: task.completed ? 'line-through' : 'none'}}
                         >
               {task.text}
             </span>

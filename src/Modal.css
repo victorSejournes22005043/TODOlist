@@ -1,0 +1,40 @@
+/* Modal.css */
+
+.Modal__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Modal__content {
+    background-color: #fff; /* Background color of modal */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    width: 300px;
+    height: 100px;
+}
+
+.Modal__content input{
+    width: calc(80% - 80px);
+    padding: 8px;
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.Modal__closeButton {
+    position: relative;
+    left: 5%;
+    bottom: 70%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #333;
+}
